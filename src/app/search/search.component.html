@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1>Pesquisa Filmes</h1>
+    </div>
+  
+    <div class="panel-body">
+      <div class="col-lg-12">
+        <div class="col-lg-12 form-group">
+          <label>Pesquise seu filme por nome</label>
+          <input [(ngModel)]="filme" id="Filmes" type="text" size="9" maxlength="9" class="form-control"/>
+
+          <div class="form-group">
+            <input id="btnFilmes" value="Pesquisar" class="btn btn-primary form-control" type="submit" (click)='EnviarFilme()' />   
+          </div>
+                                  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

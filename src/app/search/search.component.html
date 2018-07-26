@@ -1,21 +1,57 @@
-<div class="container">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1>Pesquisa Filmes</h1>
-    </div>
-  
-    <div class="panel-body">
-      <div class="col-lg-12">
-        <div class="col-lg-12 form-group">
-          <label>Pesquise seu filme por nome</label>
-          <input [(ngModel)]="filme" id="Filmes" type="text" size="9" maxlength="9" class="form-control"/>
+<div class="list-filme">
+  <div *ngIf="filmes">
+    <div class="container-mat"
+        id="infinite-scroller"
+        appInfiniteScroller
+        scrollPerecnt="70"
+        immediateCallback="false"
+        [scrollCallback]="scrollCallback">
+      <div class="nav">
+        <div class="content-search">
+            <div class="search">
+              <input [(ngModel)]="filme" id="Filmes" type="search" class="search__input mat-typography" placeholder="Pesquise por nome ou data"/>
 
-          <div class="form-group">
-            <input id="btnFilmes" value="Pesquisar" class="btn btn-primary form-control" type="submit" (click)='EnviarFilme()' />   
+              <div class="container__btn">
+                <button mat-button class="search__btn" type="submit" (click)='EnviarFilme()'><mat-icon>search</mat-icon></button>
+              </div>
+            </div>
           </div>
-                                  
+      </div>
+      <div class="body-list">
+        <div class="container-grid">
+          <div *ngFor="let filme of filmes.Search; let i = index">
+            <a [attr.id]="'filme' + i" class="filme" routerLink="/view/{{ filme.imdbID }}">
+              <mat-card>
+                <div class="image-card">
+                <img mat-card-image src="{{ filme.Poster }}" alt="Photo of a Shiba Inu">
+                </div>
+                  <mat-card-header>
+                    <mat-card-title>{{ filme.Title }}</mat-card-title>
+                    <mat-card-subtitle>{{ filme.Year }}</mat-card-subtitle>
+                  </mat-card-header>
+              </mat-card>
+            </a>
+          </div>
         </div>
+        <div class="spinner">asdas</div>
       </div>
     </div>
   </div>
 </div>
+  <div id="app-nofilme">
+    <div class="container">
+      <div *ngIf="!filmes">
+        <div class="body">
+          <div class="content-search">
+            <div class="search">
+              <input [(ngModel)]="filme" id="Filmes" type="search" class="search__input mat-typography" placeholder="Pesquise por nome ou data"/>
+
+              <div class="container__btn">
+                <button mat-button class="search__btn" type="submit" (click)='EnviarFilme()'><mat-icon>search</mat-icon></button>
+              </div>
+            </div>
+          </div>                  
+        </div>
+      </div>
+    </div>
+  </div>

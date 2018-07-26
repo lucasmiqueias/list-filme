@@ -8,17 +8,17 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { FilmesService } from './app.service';
 
-import { MatCardModule } from '@angular/material';
-import { MatButtonModule } from '@angular/material';
-import { InfiniteScrollDirective } from './infinite-scroll.directive';
-import { ListComponent } from './list/list.component';
+import { MatCardModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { InfiniteScrollerDirective } from './infinite-scroll.directive';
+import { AppRoutingModule } from './/app-routing.module';
+import { ViewfilmeComponent } from './viewfilme/viewfilme.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    InfiniteScrollDirective,
-    ListComponent
+    InfiniteScrollerDirective,
+    ViewfilmeComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,9 @@ import { ListComponent } from './list/list.component';
     ReactiveFormsModule,
     HttpModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    AppRoutingModule
   ],
   providers: [FilmesService],
   bootstrap: [AppComponent]

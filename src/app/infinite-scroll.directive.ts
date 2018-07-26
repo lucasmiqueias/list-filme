@@ -1,6 +1,7 @@
 import { Directive, AfterViewInit, ElementRef, Input } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
+
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/pairwise';
 import 'rxjs/add/operator/map';
@@ -14,17 +15,17 @@ interface ScrollPosition {
   cH: number;
 }
 
-const DEFAULT_SCROLL: ScrollPosition = {
+const DEFAULT_SCROLL_POSITION: ScrollPosition = {
   sH: 0,
   sT: 0,
   cH: 0
 };
 
 @Directive({
-  selector: '[appInfiniteScroll]'
+  selector: '[appInfiniteScroller]'
 })
 
-export class InfiniteScrollDirective implements AfterViewInit {
+export class InfiniteScrollerDirective implements AfterViewInit {
 
   private scrollEvent$;
 
@@ -41,7 +42,7 @@ export class InfiniteScrollDirective implements AfterViewInit {
   immediateCallback;
 
   @Input()
-  scrollPercent = 70;
+  scrollPercent = 99;
 
   constructor(private elm: ElementRef) { }
 
@@ -49,7 +50,7 @@ export class InfiniteScrollDirective implements AfterViewInit {
 
     this.registerScrollEvent();
 
-    this.streamScrollEvent();
+    this.streamScrollEvents();
 
     this.requestCallbackOnScroll();
 
@@ -61,7 +62,7 @@ export class InfiniteScrollDirective implements AfterViewInit {
 
   }
 
-  private streamScrollEvent() {
+  private streamScrollEvents() {
     this.userScrolledDown$ = this.scrollEvent$
       .map((e: any): ScrollPosition => ({
         sH: e.target.scrollHeight,
@@ -69,21 +70,22 @@ export class InfiniteScrollDirective implements AfterViewInit {
         cH: e.target.clientHeight
       }))
       .pairwise()
-      .filter(position => this.isUserScrollingDown(position) && this.isScrollExpectedPercent(position[1]));
+      .filter(positions => this.isUserScrollingDown(positions) && this.isScrollExpectedPercent(positions[1]));
   }
 
   private requestCallbackOnScroll() {
 
     this.requestOnScroll$ = this.userScrolledDown$;
 
-    if (this.immediateCallback) {
+    if (!this.immediateCallback) {
       this.requestOnScroll$ = this.requestOnScroll$
-        .starWith([DEFAULT_SCROLL, DEFAULT_SCROLL]);
+        .startWith([DEFAULT_SCROLL_POSITION, DEFAULT_SCROLL_POSITION]);
     }
 
     this.requestOnScroll$
       .exhaustMap(() => this.scrollCallback())
       .subscribe(() => { });
+
   }
 
   private isUserScrollingDown = (positions) => {

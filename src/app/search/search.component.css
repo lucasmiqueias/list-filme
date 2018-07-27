@@ -1,33 +1,7 @@
-mat-card {
-    width: auto;
-}
-
-.body-list {
-    background: #F8F8F8;
-}
-
-.container-grid {
-    padding: 0 10vw;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    padding-top: 20px;
-}
+/* HOME */
 
 .container {
     position: relative;
-}
-
-#infinite-scroller {
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 100%;
-    overflow-y: scroll;
-    padding: 0;
-    list-style: none;
 }
 
 #app-nofilme {
@@ -47,45 +21,33 @@ mat-card {
     max-width: 960px;
     width: 100%;
 }
-.content-search {
-    padding: 0 10vw;
-}
-.search {
-    background: #ffffff;
-    box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.15);
+
+/* LISTA */
+
+.body-list {
+    background: #F8F8F8;
 }
 
-.container__btn {
-    position:  absolute;
-    display: inline-block;
-    right:  0;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-right: 10px;
+.container-grid {
+    margin: 0 auto;
+    max-width: 1260px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding-top: 20px;
 }
 
-.search__input {
-    border: 0px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0 25px;
-    font-size: 16px;
-    box-sizing: border-box;
+#infinite-scroller {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+    padding: 0;
+    list-style: none;
 }
-
-.search__btn {
-    position:  relative;
-    display:  block;
-    min-width: auto;
-    padding: 3px 9px 3px 10px;
-    border-radius: 25em;
-}
-
-.search {
-    position:  relative;
-}
-
-.search__input {width:  100%;}
 
 .nav {
     background: #ffffff;
@@ -99,6 +61,31 @@ mat-card {
     box-shadow: none;
     overflow: hidden;
 }
+
+a.filme {
+    display: block;
+    text-decoration: none;
+    transition: .3s cubic-bezier(0.13, 0.36, 0.6, 0.86);
+}
+
+a.filme:hover {
+    transform: translateY(-10px) !important;
+    transition: .3s cubic-bezier(0.13, 0.36, 0.6, 0.86);
+}
+
+mat-card {
+    width: auto;
+    overflow: hidden;
+}
+
+.spinner-carregamento {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+/* COMPONENT CARD */
 
 .image-card {
     height: 300px;
@@ -120,21 +107,88 @@ mat-card {
     margin: auto;
 }
 
-a.filme {
-    display: block;
-    text-decoration: none;
-    transition: .3s cubic-bezier(0.13, 0.36, 0.6, 0.86);
+/* COMPONENT SEARCH */
+
+.content-search {
+    margin: 0 auto;
+    max-width: 1260px;
+}
+.content-search.home {
+    max-width: 760px;
+}
+.search {
+    position:  relative;
+    background: #ffffff;
+    box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.15);
 }
 
-a.filme:hover {
-    transform: translateY(-10px) !important;
-    transition: .3s cubic-bezier(0.13, 0.36, 0.6, 0.86);
-}
-
-.spinner-carregamento {
+.search__btn {
+    position:  absolute;
     display: inline-block;
-    position: absolute;
+    right:  0;
     top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%);
+    margin-right: 10px;
+    min-width: auto;
+    border-radius: 2em;
+    padding: 0 8px 0 10px;
+}
+
+.search__input {
+    width:  100%;
+    border: 0px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 25px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 979px) and (max-width: 1200px) {
+    .content-search, .content-search.home {
+        max-width: 960px;
+    }
+    .container-grid {
+        max-width: 960px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .image-card {
+        height: 350px;
+    }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+    .content-search, .content-search.home {
+        max-width: 740px;
+    }
+    .container-grid {
+        max-width: 740px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .image-card {
+        height: 350px;
+    }
+}
+@media (max-width: 767px) {
+    .content-search, .content-search.home {
+        max-width: 500px;
+    }
+    .container-grid {
+        max-width: 500px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .image-card {
+        height: 300px;
+    }
+}
+@media (max-width: 480px) {
+    .content-search, .content-search.home {
+        max-width: 350px;
+    }
+    .container-grid {
+        max-width: 350px;
+        grid-template-columns: none;
+    }
+    .image-card {
+        height: 250px;
+    }
 }

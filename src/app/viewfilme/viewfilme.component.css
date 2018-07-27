@@ -5,7 +5,24 @@
     min-height: 100vh;
 }
 .container {
-    padding: 0 10vw;
+    margin: 0 auto;
+    max-width: 1300px;
+}
+.nav {
+    background: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #F1F1F1;
+}
+.nav__return {
+    display: inline-block;
+}
+.mat-icon {
+    width: 54px;
+    height: 54px;
+    color: black;
+}
+.material-icons {
+    font-size: 54px;
 }
 .view {
     position: relative;

@@ -10,10 +10,7 @@
         <div class="content-search">
             <div class="search">
               <input [(ngModel)]="filme" id="Filmes" #box (keyup.enter)="onEnter(box.enviarEnter)" type="text" class="search__input mat-typography" placeholder="Pesquise por nome ou data"/>
-            
-              <div class="container__btn">
-                <button mat-button class="search__btn" type="submit" (click)='EnviarFilme()'><mat-icon>search</mat-icon></button>
-              </div>
+              <button mat-button class="search__btn" type="submit" (click)='EnviarFilme()'><mat-icon>search</mat-icon></button>
             </div>
           </div>
       </div>
@@ -46,13 +43,10 @@
     <div class="container">
       <div *ngIf="!filmes">
         <div class="body">
-          <div class="content-search">
+          <div class="content-search home">
             <div class="search">
               <input [(ngModel)]="filme" id="Filmes" #box (keyup.enter)="onEnter(box.enviarEnter)" type="text" class="search__input mat-typography" placeholder="Pesquise por nome ou data"/>
-
-              <div class="container__btn">
-                <button mat-button class="search__btn" type="submit" (click)='EnviarFilme()'><mat-icon>search</mat-icon></button>
-              </div>
+              <button mat-button class="search__btn" type="submit" (click)='EnviarFilme()'><mat-icon>search</mat-icon></button>
             </div>
           </div>                  
         </div>

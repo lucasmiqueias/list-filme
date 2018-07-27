@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
 
-const URL = 'http://www.omdbapi.com/?apikey=2b8dbe6a';
+const URL = 'https://www.omdbapi.com/?apikey=2b8dbe6a';
 
 @Injectable()
 

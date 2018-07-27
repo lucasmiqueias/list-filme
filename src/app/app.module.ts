@@ -9,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { FilmesService } from './app.service';
 
 import { MatCardModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InfiniteScrollerDirective } from './infinite-scroll.directive';
 import { AppRoutingModule } from './/app-routing.module';
 import { ViewfilmeComponent } from './viewfilme/viewfilme.component';
@@ -26,6 +27,7 @@ import { ViewfilmeComponent } from './viewfilme/viewfilme.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    MatProgressSpinnerModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,

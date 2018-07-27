@@ -21,7 +21,7 @@
         <div class="container-grid">
           <div *ngFor="let filme of filmes.Search; let i = index">
             <a [attr.id]="'filme' + i" class="filme" routerLink="/view/{{ filme.imdbID }}">
-              <mat-card>
+              <mat-card class="animated fadeInUp delay-1s">
                 <div class="image-card">
                 <img mat-card-image src="{{ filme.Poster }}" alt="Photo of a Shiba Inu">
                 </div>
@@ -33,7 +33,11 @@
             </a>
           </div>
         </div>
-        <div class="spinner">asdas</div>
+        <div style="position: relative; height: 100px; padding: 50px 0;">
+          <div class="spinner-carregamento">
+            <mat-spinner></mat-spinner>
+          </div>
+        </div>
       </div>
     </div>
   </div>

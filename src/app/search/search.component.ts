@@ -49,6 +49,8 @@ export class SearchComponent implements AfterViewChecked {
       error => console.log(error));
   }
 
+  onEnter(enviarEnter: string) { this.EnviarFilme() }
+
   ngAfterViewChecked() {
 
   }

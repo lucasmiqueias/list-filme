@@ -14,7 +14,7 @@ import { Http, Response } from '@angular/http';
 export class ViewfilmeComponent implements OnInit {
 
   ID = this.route.snapshot.params['id'];
-  filme: {};
+  filme: Filme;
 
   constructor( private route: ActivatedRoute, private router: Router, private http: Http ) {
 
@@ -24,7 +24,7 @@ export class ViewfilmeComponent implements OnInit {
 
     this.http.get(`https://www.omdbapi.com/?apikey=2b8dbe6a&i=${this.ID}`)
               .map((response: Response ) => <Filme>response.json())
-              .subscribe((data) => this.filme = data);
+              .subscribe((data: Filme) => this.filme = data);
   }
 
 }

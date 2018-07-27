@@ -1,0 +1,40 @@
+
+.body {
+    background-color: #f8f8f8;
+    width: 100%;
+    min-height: 100vh;
+}
+.container {
+    padding: 0 10vw;
+}
+.view {
+    position: relative;
+    background-color: #ffffff;
+    min-height: 100vh;
+    padding: 30px;
+}
+.view__thumbnail {
+    display: inline-block;
+    max-width: 300px;
+    width: 100%;
+    overflow: hidden;
+    margin-right: 30px;
+    float: left;
+}
+.view__thumbnail img {
+    width: 100%;
+    height: auto;;
+}
+.view>h1.mat-display-2 {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.view>h2.mat-subheading-1 {
+    font-weight: 400;
+}
+.view>.mat-subheading-1>b {
+    font-weight: 500;
+}
+.view>p {
+    padding-right: 40%;
+}

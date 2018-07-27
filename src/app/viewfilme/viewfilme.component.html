@@ -1,32 +1,40 @@
 <a routerLink="/">voltar</a>
-
-<p>
-  {{ filme.Poster }}
-</p>
-<p>
-  {{ filme.Title }}
-</p>
-<p>
-  {{ filme.Type }}
-</p>
-<p>
-  {{ filme.Plot }}
-</p>
-<p>
-  {{ filme.Runtime }}
-</p>
-<p>
-  {{ filme.Year }}
-</p>
-<p>
-  {{ filme.Genre }}
-</p>
-<p>
-  {{ filme.Director }}
-</p>
-<p>
-  {{ filme.Actors }}
-</p>
-<p>
-  {{ filme.Production }}
-</p>
+<div class="body">
+  <div class="container">
+    <div class="view mat-typography">
+      <div class="view__thumbnail">
+        <img src="{{ filme.Poster }}">
+      </div>
+      <h1 class="mat-display-2">
+        {{ filme.Title }}
+      </h1>
+      <h2 class="mat-subheading-1">
+      <b>Tipo:</b> {{ filme.Type }}
+      </h2>
+      <p>
+        {{ filme.Plot }}
+      </p>
+      <p>
+        {{ filme.Runtime }}
+      </p>
+      <p>
+        {{ filme.Year }}
+      </p>
+      <p>
+        {{ filme.Genre }}
+      </p>
+      <p>
+        {{ filme.Director }}
+      </p>
+      <p>
+        {{ filme.Actors }}
+      </p>
+      <p>
+        {{ filme.Production }}
+      </p>
+      <p>
+         {{ filme.Language }}
+      </p>
+    </div>
+  </div>
+</div>

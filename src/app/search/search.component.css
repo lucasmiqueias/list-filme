@@ -1,10 +1,5 @@
 mat-card {
     width: auto;
-    transition: .3s cubic-bezier(0.13, 0.36, 0.6, 0.86);
-}
-
-mat-card:hover {
-    transform: translateY(-10px);
 }
 
 .body-list {
@@ -40,7 +35,11 @@ mat-card:hover {
     width: 100%;
     height: 100vh;
     align-items: center;
-    background: #F8F8F8;
+    background: url('/assets/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center-top;
+    background-size: cover;
+    background-color: #F8F8F8;
 }
 
 .container {
@@ -122,7 +121,14 @@ mat-card:hover {
 }
 
 a.filme {
+    display: block;
     text-decoration: none;
+    transition: .3s cubic-bezier(0.13, 0.36, 0.6, 0.86);
+}
+
+a.filme:hover {
+    transform: translateY(-10px) !important;
+    transition: .3s cubic-bezier(0.13, 0.36, 0.6, 0.86);
 }
 
 .spinner-carregamento {

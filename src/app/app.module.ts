@@ -31,7 +31,7 @@ import { ViewfilmeComponent } from './viewfilme/viewfilme.component';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [FilmesService],
   bootstrap: [AppComponent]
